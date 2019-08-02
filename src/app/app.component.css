@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.banner {
+    text-align: center;
+    height: 10%;
+    background: grey;
+}
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    height: 90%;
+}
+.food-category {
+    display: flex;
+    flex-direction: column;
+    min-width: 18%;
+}
+
+.category-items {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    padding-top: 10px;
+}
+.category-items  div {
+    min-height: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+.category-header {
+    text-align: center;
+    font-weight: 700;
+}
+.sell-button {
+    cursor: pointer;
+    border-radius: 2px;
+    background: #3498db;
+    color: #fff;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    outline: none;
+    border: none;
+}
+.item-count {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid #3498db;
+    padding: 3px;
+    color: red;
+    font-size: 0.8rem;
+}
+
