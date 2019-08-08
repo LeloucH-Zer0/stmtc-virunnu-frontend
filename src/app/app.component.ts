@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private toastr: ToastrService, private service : AppService) {}
   title = 'FirstAngularApp';
   itemCount = 2;
-  timer = timer(2000, 5000);
+  timer = timer(2000, 3000);
   // mainContent;
   mainContent = [
     {
@@ -142,26 +142,30 @@ export class AppComponent implements OnInit {
     for(var i = 0; i < this.mainContent.length; i++) {
       for(var j = 0; j < this.mainContent[i].items.length; j++) {
         this.mainContent[i].items[j].count = resp[this.mainContent[i].items[j].id];
-
       }
     }
   }
 
   sellItem(count, id) {
+    let btn = <HTMLInputElement>document.getElementById('btn-'+id);
+    btn.disabled = true;
+    console.log(btn);
     this.service.sellFoodItem(id, count).subscribe((resp) => {
       if(resp && resp == true) {
         console.log("Sold Success");
         this.toastr.success('Sold Successfully', 'Sold!', {
-          timeOut : 1500,
+          timeOut : 3000,
           progressBar : true,
           closeButton	:true
         });
+        btn.disabled = false;
       }
       else {
         console.log("Unable to sell");
         this.toastr.error("Item out of stock!", "Error!", {
           timeOut : 3000
         });
+        btn.disabled = false;
       }
     })
     

@@ -26,11 +26,9 @@
     height: 80%;
     padding-top: 10px;
 }
-.category-items  div {
+/* .category-items  div {
     min-height: 3rem;
-    display: flex;
-    justify-content: space-around;
-}
+} */
 .category-header {
     text-align: center;
     font-weight: 700;
@@ -41,9 +39,12 @@
     background: #3498db;
     color: #fff;
     letter-spacing: 1px;
-    align-self: flex-start;
     outline: none;
     border: none;
+}
+.sell-button:disabled {
+    cursor: not-allowed;
+    background: gray;
 }
 .item-count {
     height: 15px;
@@ -53,5 +54,24 @@
     padding: 3px;
     color: red;
     font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.category-items-list {
+    display: flex;
+    justify-content: space-between;
+    min-height: 4rem;
+}
+.item-detail {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-action {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

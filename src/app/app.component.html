@@ -9,20 +9,24 @@
         </div>
         <div class="category-items">
           <div class="category-items-list" *ngFor="let item of category.items">
-            <div class="item-name">
-                {{item.item_name}}
+            <div class="item-detail">
+              <div class="item-name">
+                  {{item.item_name}}
+              </div>
+              <div class="item-count min-height-0">
+                  <span>{{item.count}}</span>
+              </div>  
             </div>
-            <div class="item-count min-height-0">
-                {{item.count}}
-            </div>       
-            <div class="item-select">
-                <select #count>
-                  <option *ngFor="let x of ' '.repeat(5).split(''); let i = index;">{{i+1}}</option>
-                </select>
-            </div>
-            <button class="sell-button min-height-0" (click)="sellItem(count.value, item.id)">
-                Sell
-            </button>
+            <div class="item-action">
+              <div class="item-select">
+                  <select #count>
+                    <option *ngFor="let x of ' '.repeat(5).split(''); let i = index;">{{i+1}}</option>
+                  </select>
+              </div>
+              <button id="btn-{{item.id}}" class="sell-button min-height-0" (click)="sellItem(count.value, item.id)">
+                  Sell
+              </button>
+            </div>     
           </div>
         </div>
       </div>

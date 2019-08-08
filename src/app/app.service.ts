@@ -10,7 +10,7 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  foodUrl = 'http://99d3603e.ngrok.io/virunnu/food/'
+  foodUrl = 'http://eripio.serveo.net/virunnu/food'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type' : 'application/json'
@@ -23,7 +23,7 @@ export class AppService {
   }
 
   getFood() {
-    return this.http.get(this.foodUrl);
+    return this.http.get(this.foodUrl+"/");
   }
 
   updateCount() {
