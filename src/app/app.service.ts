@@ -10,7 +10,7 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  foodUrl = 'http://eripio.serveo.net/virunnu/food'
+  foodUrl = 'http://192.168.0.22:9090/virunnu/food'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type' : 'application/json'
@@ -34,6 +34,10 @@ export class AppService {
     return this.http.patch(this.foodUrl+ "/" + id, {
       "count" : count
     });
+  }
+
+  getFoodNames() {
+    return this.http.get(this.foodUrl + "/names" );
   }
 }
 

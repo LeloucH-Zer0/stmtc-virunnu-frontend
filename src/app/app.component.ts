@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   itemCount = 2;
   timer = timer(2000, 3000);
   // mainContent;
+  items = [];
   mainContent = [
     {
       category_name: "Snacks",
@@ -121,6 +122,13 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    this.service.getFoodNames().subscribe(
+      (res) => {
+        if(res) {
+          this.items = res as any;
+        }
+      }
+    )
     this.service.getFood().subscribe(
       (res) => {
         if (res) {
@@ -144,6 +152,33 @@ export class AppComponent implements OnInit {
         this.mainContent[i].items[j].count = resp[this.mainContent[i].items[j].id];
       }
     }
+  }
+
+  unsellItem(count, id) {
+    let btn = <HTMLInputElement>document.getElementById('unsell');
+    btn.disabled = true;
+    console.log(btn);
+    this.service.sellFoodItem(id, -1*count).subscribe((resp) => {
+      if(resp && resp == true) {
+        console.log("UnSold Success");
+        this.toastr.error('UnSold Successfully', 'UnSold!', {
+          timeOut : 3000,
+          progressBar : true,
+          closeButton	:true
+        });
+        btn.disabled = false;
+      }
+      else {
+        console.log("Unable to Retract");
+        this.toastr.error("Something went wrong", "Error!", {
+          timeOut : 3000
+        });
+        btn.disabled = false;
+      }
+    })
+    
+    setTimeout(() => {
+      }, 2000);
   }
 
   sellItem(count, id) {

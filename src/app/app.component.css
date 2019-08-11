@@ -12,7 +12,15 @@
     display: flex;
     justify-content: space-around;
     padding-top: 20px;
-    height: 90%;
+    height: 80%;
+}
+.retract {
+    display: flex;
+    justify-content: space-around;
+    height : 10%;
+}
+.deleteaction {
+    display: flex;
 }
 .food-category {
     display: flex;
@@ -74,4 +82,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+#unsell {
+    max-height: 25px;
 }

@@ -31,4 +31,19 @@
         </div>
       </div>
     </div>
+    <div class = "retract">
+        <div class = "deleteaction">
+          <div class = "deleteoptions">
+            <select #deleteditem >
+              <option *ngFor= "let names of items" value = {{names.id}}>{{names.item_name}}</option>
+            </select>
+          </div>
+          <div class = "deletecount">
+            <select #deletequantity>
+                <option *ngFor="let x of ' '.repeat(5).split(''); let i = index;">{{i+1}}</option>
+            </select>
+          </div>
+          <button id = "unsell" class="sell-button min-height-0" (click) = "unsellItem(deletequantity.value, deleteditem.value)">UnSell</button>
+      </div>
+    </div>
   </div>
